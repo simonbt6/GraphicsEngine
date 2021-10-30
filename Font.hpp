@@ -14,6 +14,8 @@
 #include <maths/maths.hpp>
 
 #include <string>
+#include <map>
+#include <stdexcept>
 
 namespace Graphics
 {

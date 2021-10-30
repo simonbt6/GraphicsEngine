@@ -24,7 +24,7 @@ namespace Graphics
         const char* keyname = glfwGetKeyName(key, scancode);
         if (keyname == nullptr || keyname == "")
             return Utils::FormatedPrint::PrintError("WindowCallbacks::KeyCallback", "Unknown key name.");
-        Utils::FormatedPrint::PrintInfo("Key pressed [" + string(keyname) + "].");
+        Utils::FormatedPrint::PrintInfo("Key pressed [" + std::string(keyname) + "].");
     }
 
     void WindowCallbacks::MouseButtonCallback(GLFWwindow *window, int button, int action, int mods)

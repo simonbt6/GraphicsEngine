@@ -14,9 +14,12 @@
 #include "color.hpp"
 
 #include <string>
+#include <sstream>
 #include <iostream>
 #include <vector>
 #include <map>
+#include <stdexcept>
+
 
 namespace Graphics
 {

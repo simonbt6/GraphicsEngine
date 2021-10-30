@@ -7,6 +7,9 @@
 
 #include <maths/vec2.hpp>
 
+#include <utils/FormatedPrint.hpp>
+
+#include <stdexcept>
 
 
 namespace Graphics 
