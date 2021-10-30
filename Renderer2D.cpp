@@ -169,7 +169,7 @@ namespace Graphics
         
         Maths::mat4 view(1);
         Maths::mat4 model(1);
-        Maths::mat4 proj = Maths::mat4::Translate(Maths::vec3(0.0, 0, 0));
+        Maths::mat4 proj = Maths::mat4::Rotate(180, Maths::vec3(0.0, 0, 1));
 
         Maths::mat4 mvp = proj * view * model;
         shader->SetUniformMat4("u_Projection", mvp);
