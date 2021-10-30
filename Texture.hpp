@@ -16,10 +16,6 @@
 #include <string>
 #include <vector>
 
-// Utils
-#include <utils/FormatedPrint.hpp>
-#include <utils/FileManager.hpp>
-
 namespace Graphics
 {
     class Texture
