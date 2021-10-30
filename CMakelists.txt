@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project (rtmp_graphics)
+project (graphics_engine)
 
 set (SOURCE
     "Application.cpp"
@@ -36,5 +36,5 @@ set (SOURCE
 set (includes "../../includes")
 set (libs "../../libs")
 
-add_library(rtmp_graphics ${SOURCE})
-target_include_directories(rtmp_graphics PUBLIC ../ ${includes} ${includes}/ffmpeg ${libs}/glfw/include/ ${libs}/glfw/deps)
+add_library(graphics_engine ${SOURCE})
+target_include_directories(graphics_engine PUBLIC ../ ${includes} ${includes}/ffmpeg ${libs}/glfw/include/ ${libs}/glfw/deps)

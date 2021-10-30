@@ -22,7 +22,7 @@
 #include "renderables/Rectangle.hpp"
 #include "renderables/Label.hpp"
 
-#include <linmath.h>
+// #include <linmath.h>
 #include <iostream>
 
 #include <utils/FileManager.hpp>
