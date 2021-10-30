@@ -24,9 +24,6 @@
 
 #include <maths/maths.hpp>
 
-#include <utils/FileManager.hpp>
-#include <utils/FormatedPrint.hpp>
-
 #include <map>
 #include <string>
 

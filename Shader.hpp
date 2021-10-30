@@ -17,9 +17,6 @@
 #include <vector>
 #include <inttypes.h>
 
-#include <utils/FileManager.hpp>
-#include <utils/FormatedPrint.hpp>
-
 namespace Graphics
 {
     struct ShaderSource

@@ -7,8 +7,6 @@
 
 #include <maths/vec2.hpp>
 
-#include <utils/FormatedPrint.hpp>
-
 
 
 namespace Graphics 
