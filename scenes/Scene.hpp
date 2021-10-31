@@ -7,12 +7,11 @@
  * 
  */
 
-#include "Camera.hpp"
-#include "ILayer.hpp"
-#include "Layer2D.hpp"
-#include "IRenderable2D.hpp"
-#include "Renderer2D.hpp"
-
+#include <graphics/camera/Camera.hpp>
+#include <graphics/layers/ILayer.hpp>
+#include <graphics/layers/Layer2D.hpp>
+#include <graphics/renderer/Renderables/IRenderable2D.hpp>
+#include <graphics/renderer/Renderer2D.hpp>
 
 namespace Graphics
 {

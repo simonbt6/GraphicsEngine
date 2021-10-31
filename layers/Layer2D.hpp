@@ -6,10 +6,10 @@
  * 
  * 
  */
-#include "ILayer.hpp"
-#include "Renderer2D.hpp"
-#include "TextRenderer.hpp"
-#include "IRenderable2D.hpp"
+#include <graphics/layers/ILayer.hpp>
+#include <graphics/renderer/Renderer2D.hpp>
+#include <graphics/renderer/text/TextRenderer.hpp>
+#include <graphics/renderer/renderables/IRenderable2D.hpp>
 
 #include <maths/maths.hpp>
 

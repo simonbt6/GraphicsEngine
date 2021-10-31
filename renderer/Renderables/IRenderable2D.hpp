@@ -6,10 +6,10 @@
  * 
  * 
  */
-#include "Texture.hpp"
-#include "Renderer2D.hpp"
+#include <graphics/renderer/Texture.hpp>
+#include <graphics/renderer/Renderer2D.hpp>
 
-#include "color.hpp"
+#include <graphics/utils/color.hpp>
 
 #include <maths/maths.hpp>
 

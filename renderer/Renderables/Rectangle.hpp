@@ -9,7 +9,7 @@
 
 #include <glad/gl.h>
 
-#include "../IRenderable2D.hpp"
+#include <graphics/renderer/renderables/IRenderable2D.hpp>
 
 namespace Graphics
 {

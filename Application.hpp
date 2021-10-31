@@ -10,17 +10,17 @@
 #include <glad/gl.h>
 #include <GLFW/glfw3.h>
 
-#include "Window.hpp"
-#include "Layer2D.hpp"
-#include "color.hpp"
-#include "Font.hpp"
-#include "SoundEngine.hpp"
+#include "window/Window.hpp"
+#include "layers/Layer2D.hpp"
+#include "utils/color.hpp"
+#include "renderer/text/Font.hpp"
+#include "sound/SoundEngine.hpp"
 
 #include <maths/maths.hpp>
 
-#include "renderables/Sprite.hpp"
-#include "renderables/Rectangle.hpp"
-#include "renderables/Label.hpp"
+#include "renderer/renderables/Sprite.hpp"
+#include "renderer/renderables/Rectangle.hpp"
+#include "renderer/renderables/Label.hpp"
 
 // #include <linmath.h>
 #include <iostream>

@@ -12,15 +12,15 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
-#include "Shader.hpp"
-#include "Texture.hpp"
-#include "VertexArray.hpp"
-#include "VertexBuffer.hpp"
-#include "VertexBufferLayout.hpp"
-#include "IndexBuffer.hpp"
-#include "color.hpp"
-#include "IRenderable2D.hpp"
-#include "TextRenderer.hpp"
+#include <graphics/renderer/Shader.hpp>
+#include <graphics/renderer/Texture.hpp>
+#include <graphics/buffers/VertexArray.hpp>
+#include <graphics/buffers/VertexBuffer.hpp>
+#include <graphics/buffers/VertexBufferLayout.hpp>
+#include <graphics/buffers/IndexBuffer.hpp>
+#include <graphics/utils/color.hpp>
+#include <graphics/renderer/renderables/IRenderable2D.hpp>
+#include <graphics/renderer/text/TextRenderer.hpp>
 
 #include <maths/maths.hpp>
 

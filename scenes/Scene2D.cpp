@@ -12,9 +12,9 @@ namespace Graphics
 
     }
 
-    void Scene2D::Add(Entity* entity)
+    void Scene2D::Add(Layer2D* layer)
     {
-        m_Entities.push_back(entity);
+        m_Layers.push_back(layer);
     }
 
     void Scene2D::SetCamera(Camera* camera)
@@ -37,8 +37,8 @@ namespace Graphics
         return m_Camera;
     }
 
-    const std::vector<Entity*>& Scene2D::GetEntities() const
+    const std::vector<Layer2D*>& Scene2D::GetLayers() const
     {
-        return m_Entities;
+        return m_Layers;
     }
 };

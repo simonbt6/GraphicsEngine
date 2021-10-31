@@ -1,11 +1,11 @@
 #pragma once
 
-#include "components/Component.hpp"
+#include <graphics/components/Component.hpp>
+#include <graphics/renderer/renderables/Sprite.hpp>
 
 #include <unordered_map>
 #include <maths/maths.hpp>
 
-#include "renderables/Sprite.hpp"
 
 namespace Graphics
 {

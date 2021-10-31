@@ -2,16 +2,16 @@
 
 #include <vector>
 
-#include "Camera.hpp"
-#include "Layer2D.hpp"
-#include "Renderer2D.hpp"
+#include <graphics/scenes/Scene.hpp>
+#include <graphics/camera/Camera.hpp>
+#include <graphics/layers/ILayer.hpp>
+#include <graphics/renderer/Renderer2D.hpp>
 
 namespace Graphics
 {
-    class Scene3D
+    class Scene3D : public Scene
     {
         private:
-            std::vector<Layer2D*> m_Layers2D;
             Camera* m_Camera;
 
         public:
@@ -20,7 +20,7 @@ namespace Graphics
 
             ~Scene3D();
 
-            void Add(Layer2D* layer);
+            void Add(Layer* layer);
 
             void Update();
             void Render();
@@ -28,7 +28,7 @@ namespace Graphics
             void SetCamera(Camera* camera);
             
             Camera* GetCamera() const;
-            const std::vector<Layer2D*>& GetLayers() const;
+            const std::vector<Layer*>& GetLayers() const;
             
 
     };

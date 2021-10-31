@@ -7,9 +7,9 @@
  * 
  */
 
-#include <graphics/Font.hpp>
-#include <graphics/IRenderable2D.hpp>
-#include <graphics/color.hpp>
+#include <graphics/renderer/text/Font.hpp>
+#include <graphics/renderer/renderables/IRenderable2D.hpp>
+#include <graphics/utils/color.hpp>
 
 #include <maths/maths.hpp>
 
