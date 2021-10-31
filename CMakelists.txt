@@ -5,31 +5,31 @@ project (graphics_engine)
 set (SOURCE
     "Application.cpp"
     
-    "Window.cpp"
-    "WindowCallbacks.cpp"
+    "window/Window.cpp"
+    "window/WindowCallbacks.cpp"
     
-    "Layer2D.cpp"
-    "Renderer2D.cpp"
+    "layers/Layer2D.cpp"
+    
+    "renderer/Renderer2D.cpp"
+    "renderer/Shader.cpp"
+    "renderer/Texture.cpp"
+    "renderer/text/Font.cpp"
+    "renderer/text/TextRenderer.cpp"
 
-    "Shader.cpp"
-    "Texture.cpp"
+    "buffers/IndexBuffer.cpp"
+    "buffers/VertexBuffer.cpp"
+    "buffers/VertexArray.cpp"
 
-    "IndexBuffer.cpp"
-    "VertexBuffer.cpp"
-    "VertexArray.cpp"
 
-    "Font.cpp"
-    "TextRenderer.cpp"
+    "camera/Camera.cpp"
+    "camera/OrthoCamera.cpp"
 
-    "Camera.cpp"
-    "OrthoCamera.cpp"
-
-    "Entity.cpp"
-    "Scene2D.cpp"
-    "Scene3D.cpp"
-
-    "SoundEngine.cpp"
-
+    "scenes/Scene2D.cpp"
+    "scenes/Scene3D.cpp"
+    
+    "sound/SoundEngine.cpp"
+    
+    "components/Entity.cpp"
     "components/Component.cpp"
 
 )

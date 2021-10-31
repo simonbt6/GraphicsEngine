@@ -3,7 +3,7 @@
 #include <vector>
 
 #include "Camera.hpp"
-#include "Entity.hpp"
+#include "Layer2D.hpp"
 #include "Renderer2D.hpp"
 
 namespace Graphics
@@ -11,7 +11,7 @@ namespace Graphics
     class Scene3D
     {
         private:
-            std::vector<Entity*> m_Entities;
+            std::vector<Layer2D*> m_Layers2D;
             Camera* m_Camera;
 
         public:
@@ -20,14 +20,15 @@ namespace Graphics
 
             ~Scene3D();
 
-            void Add(Entity* entity);
-            void SetCamera(Camera* camera);
+            void Add(Layer2D* layer);
 
             void Update();
             void Render();
 
+            void SetCamera(Camera* camera);
+            
             Camera* GetCamera() const;
-            const std::vector<Entity*>& GetEntities() const;
+            const std::vector<Layer2D*>& GetLayers() const;
             
 
     };
