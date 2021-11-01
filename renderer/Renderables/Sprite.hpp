@@ -34,7 +34,7 @@ namespace Graphics
 
                 virtual void Submit(Renderer2D* renderer) const 
                 {
-                    renderer->DrawSprite(GetTexture(), GetBounds());
+                    renderer->DrawSprite(GetTexture(), GetBounds(), GetModelMatrix());
                 }
         };
     };

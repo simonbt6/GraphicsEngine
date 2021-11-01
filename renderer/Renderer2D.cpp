@@ -125,17 +125,18 @@ namespace Graphics
 
     }
 
-    void Renderer2D::DrawSprite(const Texture& texture, Maths::Rectangle rectangle)
+
+    void Renderer2D::DrawSprite(const Texture& texture, Maths::Rectangle rectangle, const Maths::mat4& modelMatrix = Maths::mat4::Identity())
     {
-        DrawSprite(texture, rectangle.GetPosition(), rectangle.GetSize());
+        DrawSprite(texture, rectangle.GetPosition(), rectangle.GetSize(), modelMatrix);
     }
 
-    void Renderer2D::DrawSprite(const Texture& texture, Maths::vec2 position, Maths::vec2 size)
+    void Renderer2D::DrawSprite(const Texture& texture, Maths::vec2 position, Maths::vec2 size, const Maths::mat4& modelMatrix = Maths::mat4::Identity())
     {
-        DrawSprite(texture, position.GetX(), position.GetY(), size.GetX(), size.GetY());
+        DrawSprite(texture, position.GetX(), position.GetY(), size.GetX(), size.GetY(), modelMatrix);
     }
 
-    void Renderer2D::DrawSprite(const Texture& texture, float x, float y, float width, float height)
+    void Renderer2D::DrawSprite(const Texture& texture, float x, float y, float width, float height, const Maths::mat4& modelMatrix = Maths::mat4::Identity())
     {
         Clear();
         float vertices[] = {
@@ -167,10 +168,8 @@ namespace Graphics
 
         texture.Bind();
         
-        Maths::mat4 modelMatrix(1);
-
         Maths::mat4 mvp = 
-            GetCamera()->GetProjectionMatrix()  // Projection matrix.
+              GetCamera()->GetProjectionMatrix()  // Projection matrix.
             * GetCamera()->GetViewMatrix()      // View matrix.
             * modelMatrix;                      // Model matrix.
             

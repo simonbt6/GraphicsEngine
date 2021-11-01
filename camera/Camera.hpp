@@ -29,7 +29,7 @@ namespace Graphics
             void Rotate(const Maths::vec3& rotation);
 
             void Translate(float x, float y, float z);
-            void Rotate(float x, float y, float z);
+            void Rotate(float angle, float x, float y, float z);
 
             const Maths::vec3& GetFocalPoint() const;
             const Maths::mat4& GetViewMatrix() const;

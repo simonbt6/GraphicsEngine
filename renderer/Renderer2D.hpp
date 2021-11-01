@@ -25,6 +25,7 @@
 #include <graphics/utils/color.hpp>
 
 #include <graphics/renderer/renderables/IRenderable2D.hpp>
+
 #include <graphics/renderer/text/TextRenderer.hpp>
 
 #include <maths/maths.hpp>
@@ -71,9 +72,9 @@ namespace Graphics
 
             void DrawQuad(Maths::vec4 positions, Color color);
             
-            void DrawSprite(const Texture& texture, Maths::Rectangle bounds);
-            void DrawSprite(const Texture& texture, Maths::vec2 position, Maths::vec2 size);
-            void DrawSprite(const Texture& texture, float x, float y, float width, float height);
+            void DrawSprite(const Texture& texture, Maths::Rectangle bounds, const Maths::mat4& modelMatrix);
+            void DrawSprite(const Texture& texture, Maths::vec2 position, Maths::vec2 size, const Maths::mat4& modelMatrix);
+            void DrawSprite(const Texture& texture, float x, float y, float width, float height, const Maths::mat4& modelMatrix);
 
             void DrawText(const std::string& text, const std::string& font_name, float size,  const Color& color, Maths::vec2 position);
 

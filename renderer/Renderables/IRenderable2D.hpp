@@ -86,6 +86,10 @@ namespace Graphics
                 return arr;
             }
 
+            inline void Rotate(float angle, float x, float y, float z) { m_ModelMatrix *= Maths::mat4::Rotate(angle, Maths::vec3(x, y, z)); }
+            inline void Translate(float x, float y, float z)              { m_ModelMatrix *= Maths::mat4::Translate(Maths::vec3(x, y, z)); }
+            inline void Translate(Maths::vec3 translation) { m_ModelMatrix *= Maths::mat4::Translate(translation); }
+
             inline const Maths::mat4& GetModelMatrix() const { return m_ModelMatrix; }
             inline void SetModelMatrix(const Maths::mat4 matrix) { m_ModelMatrix = matrix; }
 

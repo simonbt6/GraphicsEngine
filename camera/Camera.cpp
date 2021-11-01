@@ -22,6 +22,7 @@ namespace Graphics
 
     void Camera::Update()
     {
+        
 
     }
 
@@ -67,12 +68,12 @@ namespace Graphics
 
     void Camera::Translate(float x, float y, float z)
     {
-        m_Position += Maths::vec3(x, y, z);
+        m_ViewMatrix *= Maths::mat4::Translate(Maths::vec3(x, y, z));
     }
 
-    void Camera::Rotate(float x, float y, float z)
+    void Camera::Rotate(float angle, float x, float y, float z)
     {
-        m_Rotation += Maths::vec3(x, y, z);
+        m_ViewMatrix *= Maths::mat4::Rotate(angle, Maths::vec3(x, y, z));
     }
 
     const Maths::vec3& Camera::GetFocalPoint() const
