@@ -10,22 +10,28 @@
 #include <glad/gl.h>
 #include <GLFW/glfw3.h>
 
-#include "window/Window.hpp"
-#include "layers/Layer2D.hpp"
-#include "utils/color.hpp"
-#include "renderer/text/Font.hpp"
-#include "sound/SoundEngine.hpp"
+#include <graphics/window/Window.hpp>
+
+#include <graphics/layers/Layer2D.hpp>
+
+#include <graphics/scenes/Scene.hpp>
+#include <graphics/scenes/Scene2D.hpp>
+
+#include <graphics/renderer/text/Font.hpp>
+#include <graphics/renderer/renderables/Sprite.hpp>
+#include <graphics/renderer/renderables/Rectangle.hpp>
+#include <graphics/renderer/renderables/Label.hpp>
+
+#include <graphics/utils/color.hpp>
+
+#include <graphics/sound/SoundEngine.hpp>
 
 #include <maths/maths.hpp>
 
-#include "renderer/renderables/Sprite.hpp"
-#include "renderer/renderables/Rectangle.hpp"
-#include "renderer/renderables/Label.hpp"
+#include <utils/FileManager.hpp>
 
-// #include <linmath.h>
 #include <iostream>
 
-#include <utils/FileManager.hpp>
 
 #define DEFAULT_WINDOW_WIDTH  300
 #define DEFAULT_WINDOW_HEIGHT 300
@@ -38,8 +44,6 @@ namespace Graphics
     // class Window;
     class Application
     {
-        private:
-            static Application* s_Instance;
 
         private:
             Window* m_Window;
@@ -53,7 +57,7 @@ namespace Graphics
 
             std::string m_Name;
 
-            std::vector<Layer2D*> m_LayerStack;
+            Scene* m_Scene;
 
         public:
             Application();
@@ -64,9 +68,8 @@ namespace Graphics
 
             virtual ~Application();
 
-            void AddLayer2D(Layer2D* layer);
-            Layer2D* PopLayer2D();
-            Layer2D* PopLayer2D(Layer2D* layer);
+            inline void SetScene(Scene* scene) { m_Scene = scene; }
+            inline Scene* GetScene() { return m_Scene; }
 
             void SetWindowHandler(void(* handler)()) { m_Window->SetHandler(handler); };
 
@@ -86,16 +89,13 @@ namespace Graphics
             void OnRender();
 
             inline SoundEngine& GetSoundEngine() const{ return *m_SoundEngine; }
+
+            inline Scene* GetCurrentScene() const { return m_Scene; }
         private:
 
             void Run(){}
 
             void OnTick();
             void OnUpdate();
-
-
-        public:
-            inline static Application& GetApplication() { return *s_Instance; }
-            inline static SoundEngine& GetSoundEngineStatic() { return GetApplication().GetSoundEngine(); }
     };
 };

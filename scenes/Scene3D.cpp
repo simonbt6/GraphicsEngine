@@ -2,12 +2,12 @@
 
 namespace Graphics
 {
-    Scene3D::Scene3D()
+    Scene3D::Scene3D() : Scene(nullptr)
     {
 
     }
 
-    Scene3D::Scene3D(Camera* camera): m_Camera(camera)
+    Scene3D::Scene3D(Camera* camera): Scene(camera)
     {
 
     }

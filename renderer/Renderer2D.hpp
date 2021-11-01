@@ -12,13 +12,18 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
+#include <graphics/camera/Camera.hpp>
+
 #include <graphics/renderer/Shader.hpp>
 #include <graphics/renderer/Texture.hpp>
+
 #include <graphics/buffers/VertexArray.hpp>
 #include <graphics/buffers/VertexBuffer.hpp>
 #include <graphics/buffers/VertexBufferLayout.hpp>
 #include <graphics/buffers/IndexBuffer.hpp>
+
 #include <graphics/utils/color.hpp>
+
 #include <graphics/renderer/renderables/IRenderable2D.hpp>
 #include <graphics/renderer/text/TextRenderer.hpp>
 
@@ -39,17 +44,19 @@ namespace Graphics
     class Renderer2D
     {
         private:
-            std::map<std::string, Shader*> m_Shaders;
             static inline const std::string s_FolderPath = "D:/dev-repo/VideoStreaming/RTMP/src/graphics/shaders/";
-            Maths::mat4 m_ProjectionMatrix;
 
+        private:
             TextRenderer* m_TextRenderer;
+            
+            Camera* m_Camera;
 
             VertexArray m_VAO;
 
+            std::map<std::string, Shader*> m_Shaders;
 
         public:
-            Renderer2D(Maths::mat4 projectionMatrix);
+            Renderer2D(Camera* camera);
            ~Renderer2D();
 
             void Clear();
@@ -69,6 +76,9 @@ namespace Graphics
             void DrawSprite(const Texture& texture, float x, float y, float width, float height);
 
             void DrawText(const std::string& text, const std::string& font_name, float size,  const Color& color, Maths::vec2 position);
+
+            inline void SetCamera(Camera* camera) { m_Camera = camera; }
+            inline Camera* GetCamera() const { return m_Camera; }
             
         private:
             Shader* GetShader(const std::string& name);

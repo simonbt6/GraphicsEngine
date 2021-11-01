@@ -2,8 +2,8 @@
 
 namespace Graphics
 {
-    Renderer2D::Renderer2D(Maths::mat4 projectionMatrix)
-        : m_TextRenderer(new TextRenderer()), m_ProjectionMatrix(projectionMatrix)
+    Renderer2D::Renderer2D(Camera* camera)
+        : m_TextRenderer(new TextRenderer()), m_Camera(camera)
     {
         this->LoadShaders();
         // this->LoadCharacters();
@@ -167,11 +167,13 @@ namespace Graphics
 
         texture.Bind();
         
-        Maths::mat4 view(1);
-        Maths::mat4 model(1);
-        Maths::mat4 proj = Maths::mat4::Rotate(180, Maths::vec3(0.0, 0, 1));
+        Maths::mat4 modelMatrix(1);
 
-        Maths::mat4 mvp = proj * view * model;
+        Maths::mat4 mvp = 
+            GetCamera()->GetProjectionMatrix()  // Projection matrix.
+            * GetCamera()->GetViewMatrix()      // View matrix.
+            * modelMatrix;                      // Model matrix.
+            
         shader->SetUniformMat4("u_Projection", mvp);
         shader->SetUniform1i("u_Texture", 0);
 

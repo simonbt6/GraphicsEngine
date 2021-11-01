@@ -2,9 +2,9 @@
 
 namespace Graphics
 {
-    Layer2D::Layer2D(const Maths::mat4& projectionMatrix)
+    Layer2D::Layer2D()
     {
-        m_Renderer = new Renderer2D(projectionMatrix);
+
     }
 
     void Layer2D::Init()
@@ -12,27 +12,17 @@ namespace Graphics
 
     }
 
-    void Layer2D::OnInit(Renderer2D& renderer)
-    {
-        
-    }
-
     void Layer2D::Submit(IRenderable2D* renderable)
     {
         this->m_SubmittedRenderables.push_back(renderable);
     }
 
-    void Layer2D::OnRender()
+    void Layer2D::OnRender(Renderer2D* renderer)
     {
         for (const IRenderable2D* renderable : m_SubmittedRenderables)
-            renderable->Submit(m_Renderer);
+            renderable->Submit(renderer);
 
         m_SubmittedRenderables.clear();
-    }
-
-    void Layer2D::OnRender(Renderer2D& renderer)
-    {
-
     }
 
     void Layer2D::OnUpdateInternal()

@@ -9,30 +9,24 @@
 
 #include <graphics/camera/Camera.hpp>
 #include <graphics/layers/ILayer.hpp>
-#include <graphics/layers/Layer2D.hpp>
-#include <graphics/renderer/Renderables/IRenderable2D.hpp>
-#include <graphics/renderer/Renderer2D.hpp>
 
 namespace Graphics
 {
     class Scene
     {
         protected:
-            Camera* camera;
+            Camera* m_Camera;
 
             std::vector<Layer*> m_Layers;
 
         public:
+            Scene(Camera* camera): m_Camera(camera){}
 
-            Scene();
-            Scene(Camera* camera);
+            virtual ~Scene(){}
 
-            virtual ~Scene();
-
-            virtual void Render();
-
-
-        protected:
+            virtual void OnUpdate(){}
+            virtual void OnTick(){}
+            virtual void OnRender(){}
 
     };
 }

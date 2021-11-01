@@ -32,11 +32,16 @@ namespace Graphics
             std::vector<Maths::vec4> m_UV;
             std::vector<uint32_t> m_Indices;
 
+            Maths::mat4 m_ModelMatrix;
+
             bool m_Visible;
 
         public:
             IRenderable2D(const Maths::vec2& position, const Maths::vec2& size, const Color& color)
-            : m_Bounds(Maths::Rectangle(position, size)), m_Color(color) {}
+                : m_Bounds(Maths::Rectangle(position, size)), m_Color(color), m_ModelMatrix(Maths::mat4::Identity()) {}
+
+            IRenderable2D(const Maths::Rectangle bounds, const Color& color, const Maths::mat4 model_matrix)
+                :m_Bounds(bounds), m_Color(color), m_ModelMatrix(model_matrix){}
 
             virtual ~IRenderable2D(){}
 
@@ -80,6 +85,9 @@ namespace Graphics
                 }
                 return arr;
             }
+
+            inline const Maths::mat4& GetModelMatrix() const { return m_ModelMatrix; }
+            inline void SetModelMatrix(const Maths::mat4 matrix) { m_ModelMatrix = matrix; }
 
     };
 

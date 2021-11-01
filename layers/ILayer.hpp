@@ -5,7 +5,7 @@
  * 
  */
 
-
+#include <graphics/renderer/Renderer2D.hpp>
 
 #include <inttypes.h>
 
@@ -29,7 +29,7 @@ namespace Graphics
             virtual void OnTick(){};
             virtual void OnUpdate(){};
             virtual void OnUpdateInternal(){};
-            virtual void OnRender(){};
+            virtual void OnRender(Renderer2D* renderer){};
         
         protected:
             // virtual bool OnResize(uint32_t width, uint32_t height){return};

@@ -59,8 +59,6 @@ namespace Graphics
 
     Application::Application(const std::string& name, const Maths::Rectangle& bounds)
     {
-        // s_Instance = this;
-
         m_Window = new Window(name, bounds);
         m_SoundEngine = new SoundEngine();
     }
@@ -68,32 +66,6 @@ namespace Graphics
     Application::~Application()
     {
 
-    }
-
-    void Application::AddLayer2D(Layer2D* layer)
-    {
-        m_LayerStack.push_back(layer);
-        layer->Init();
-    }
-
-    Layer2D* Application::PopLayer2D()
-    {
-        Layer2D* layer = m_LayerStack.back();
-        m_LayerStack.pop_back();
-        return layer;
-    }
-
-    Layer2D* Application::PopLayer2D(Layer2D* layer)
-    {
-        for (int i = 0; i < m_LayerStack.size(); i++)
-        {
-            if (m_LayerStack[i] == layer)
-            {
-                m_LayerStack.erase(m_LayerStack.begin() + i);
-                break;
-            }
-        }
-        return layer;
     }
 
     void Application::Start()
@@ -109,19 +81,16 @@ namespace Graphics
 
     void Application::OnTick()
     {
-        for (Layer2D* layer : m_LayerStack)
-            layer->OnTick();
+        m_Scene->OnTick();
     }
 
     void Application::OnUpdate()
     {
-        for (Layer2D* layer : m_LayerStack)
-            layer->OnUpdate();
+        m_Scene->OnUpdate();
     }
 
     void Application::OnRender()
     {
-        for (Layer2D* layer : m_LayerStack)
-            layer->OnRender();
+        m_Scene->OnRender();
     }
 }
